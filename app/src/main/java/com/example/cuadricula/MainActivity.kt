@@ -42,3 +42,31 @@ class MainActivity : ComponentActivity() {
 
 
 
+    @Composable
+    fun TopicGrid(modifier: Modifier = Modifier) {
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = modifier.padding(8.dp)
+        ) {
+            items(DataSource.topics) { topic ->
+                TopicCard(topic)
+            }
+        }
+    }
+    @Composable
+    fun TopicCard(topic: Topic, modifier: Modifier = Modifier) {
+        Card(elevation = 4.dp) {
+            Row {
+                Box {
+                    Image(
+                        painter = painterResource(id = topic.imageRes),
+                        contentDescription = null,
+                        modifier = modifier
+                            .size(width = 68.dp, height = 68.dp)
+                            .aspectRatio(1f),
+                        contentScale = ContentScale.Crop
+                    )
+                }
+
