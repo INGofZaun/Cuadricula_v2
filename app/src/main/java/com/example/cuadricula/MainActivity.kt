@@ -70,3 +70,32 @@ class MainActivity : ComponentActivity() {
                     )
                 }
 
+                Column {
+                    Text(
+                        text = stringResource(id = topic.name),
+                        style = MaterialTheme.typography.body2,
+                        modifier = Modifier.padding(
+                            start = 16.dp,
+                            top = 16.dp,
+                            end = 16.dp,
+                            bottom = 8.dp
+                        )
+                    )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_grain),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .padding(start = 16.dp)
+                        )
+                        Text(
+                            text = topic.availableCourses.toString(),
+                            style = MaterialTheme.typography.caption,
+                            modifier = Modifier.padding(start = 8.dp)
+                        )
+                    }
+                }
+            }
+        }
+    }
+
